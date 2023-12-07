@@ -1,3 +1,4 @@
+//Slides
 const slides = [
 	{
 		"image":"./assets/images/slideshow/slide1.jpg",
@@ -68,6 +69,7 @@ dotsEl.forEach((dot, index) => {
 });
 }
 
+// Fonction pour mettre à jour le carrousel
 function updateCarousel() {
     img.src = slides[i].image;
     txt.innerHTML = slides[i].tagLine;
