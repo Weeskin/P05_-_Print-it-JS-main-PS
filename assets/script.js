@@ -32,31 +32,31 @@ const slides = [
 // Créez et ajoutez les éléments .dot enfants en fonction de la longueur du tableau slides
 	for (let j = 0; j < slides.length; j++) {
 	const dot = document.createElement("div");
-	dot.classList.add("dot");
 	dotsContainer.appendChild(dot);
+	dot.classList.add("dot");
 	}
 
 // Sélectionnez à nouveau les éléments .dot après les avoir ajoutés
 	const dotsEl = dotsContainer.querySelectorAll(".dot");
+	
+// Écouteurs d'événements pour les boutons gauche et droite
+	leftEl.addEventListener("click", function () {
+		i--;
+		if (i === -1) {i = slides.length - 1;}
+		console.log("Left Click - Index: ", i);
+		dynamicBullets(i);
+		updateCarousel();
+	});
+	
+	rightEl.addEventListener("click", function () {
+		i = ( i + 1) % numberofSlides;
+		console.log("Right Click - Index: ", i);
+		dynamicBullets(i);
+		updateCarousel();
+	});
 
 // Ajoutez la classe dot_selected à la première bullet (index 0)
 dotsEl[0].classList.add("dot_selected");
-
-// Écouteurs d'événements pour les boutons gauche et droite
-leftEl.addEventListener("click", function () {
-	i--;
-	if (i === -1) {i = slides.length - 1;}
-	console.log("Left Click - Index: ", i);
-	dynamicBullets(i);
-	updateCarousel();
-});
-
-rightEl.addEventListener("click", function () {
-	i = ( i + 1) % numberofSlides;
-	console.log("Right Click - Index: ", i);
-	dynamicBullets(i);
-	updateCarousel();
-});
 
 // Fonction pour mettre à jour les bullets dynamiquement
 function dynamicBullets(count) {
