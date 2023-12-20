@@ -35,10 +35,12 @@ const slides = [
 	dotsContainer.appendChild(dot);
 	dot.classList.add("dot");
 	}
-
+	
 // Sélectionnez à nouveau les éléments .dot après les avoir ajoutés
 	const dotsEl = dotsContainer.querySelectorAll(".dot");
 	
+// Ajoutez la classe dot_selected à la première bullet (index 0)
+		dotsEl[0].classList.add("dot_selected");
 // Écouteurs d'événements pour les boutons gauche et droite
 	leftEl.addEventListener("click", function () {
 		i--;
@@ -55,8 +57,6 @@ const slides = [
 		updateCarousel();
 	});
 
-// Ajoutez la classe dot_selected à la première bullet (index 0)
-dotsEl[0].classList.add("dot_selected");
 
 // Fonction pour mettre à jour les bullets dynamiquement
 function dynamicBullets(count) {
